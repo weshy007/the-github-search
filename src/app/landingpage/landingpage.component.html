@@ -19,25 +19,15 @@
 <div class="container-fluid">
     <h3>My Profile Details</h3>
     <p *ngIf='user'>
-        <!-- <img src="{{user.avatar_url}}" alt=""> -->
         
         Name:  {{user.name}} <br>
         Username: {{user.login}} <br>
         Followers: {{user.followers}} <br>
         Following: {{user.following}} <br>
-        <!-- Profile Link {{user.url}} -->
+       
         
     </p>
     <h3>My Repositories</h3>
-    <!-- <div *ngFor="let repo of repository" class="card col-md" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{repo.name}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{repo.language}}</h6>
-          <p class="card-text"> {{repo.description}} </p>
-          <a href="{{ repo.html_url }}" class="btn btn-secondary btn-sm" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-</div> -->
 
 <div class="container" style="text-align: center;">
 

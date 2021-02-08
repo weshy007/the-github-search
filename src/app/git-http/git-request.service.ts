@@ -17,7 +17,7 @@ export class GitRequestService {
   repos: Repository;
   Username?: string;
   
-  // repo:any;
+
   
   constructor(private http:HttpClient) {
     this.user = new User("","",0 , 0, "", "")
@@ -25,7 +25,7 @@ export class GitRequestService {
     
     this.Username = "weshy007" 
     
-    // console.log(this.user)
+    
   }
   
   searchUser(userRequest: any) {
@@ -50,7 +50,7 @@ export class GitRequestService {
         this.user.followers = response.followers
         this.user.following = response.following
         
-        // console.log(response)
+       
 
         resolve(response)
       }), 
@@ -75,7 +75,6 @@ export class GitRequestService {
       this.http.get<ApiResponse>(environment.apiUrl + this.Username +"/repos?access_token="+environment.apiKey).toPromise().then(response=>{
         this.repos = response;
         
-        // console.log(response)
 
         resolve(response)
       }), 
@@ -107,7 +106,7 @@ export class GitRequestService {
     this.user.followers = response.followers;
     this.user.following = response.following;   
     
-    // this.user.public_repos = response.public_repos
+    
 
     })
     })

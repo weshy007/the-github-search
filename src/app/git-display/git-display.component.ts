@@ -15,16 +15,12 @@ export class GitDisplayComponent implements OnInit {
   repository:any
   User = environment.apiKey;
   UserName?: string;
-   // this.gitService.getUserRepos(this.UserName).then(repos =>{
-    //   this.repository = repos;
-    //   });
+   
   constructor(public gitService:GitRequestService) {
  
    }
 
   searchUser() {
-    // this.emitSearch.emit(this.Username);
-    // this.Username; 
     this.gitService.userRequest(this.UserName);
     
     this.user= this.gitService.user;
@@ -56,10 +52,7 @@ export class GitDisplayComponent implements OnInit {
 
     
   ngOnInit(): void {
-    // this.gitService.userRequest()
-    // this.user = this.gitService.user
-    // this.userRequest("weshy007");
-
+   
 }
 
     
