@@ -22,40 +22,66 @@ export class GitRequestService {
     
     this.Username = "weshy007" 
     
-    console.log(this.user)
+    // console.log(this.user)
   }
   
   // searchUser(userRequest: any) {
   //   throw new Error('Method not implemented.');
   // }
 
-   userRequest(){
-    interface ApiResponse{
-      name:string,
-      login: string,
-      followers: number,
-      following: number,
-      repos_url: string,
+  //  userRequest(){
+  //   interface ApiResponse{
+  //     name:string,
+  //     login: string,
+  //     followers: number,
+  //     following: number,
+  //     repos_url: string,
+  //   }
+  //   let promise = new Promise((resolve,reject)=>{
+  //     this.http.get<ApiResponse>(environment.apiUrl+this.Username+"?access_token="+environment.apiKey).toPromise().then(response=>{
+  //       this.user.name = response.name
+  //       this.user.login = response.login
+  //       this.user.followers = response.followers
+  //       this.user.following = response.following
+        
+  //       // console.log(response)
+
+  //       resolve(response)
+  //     }), 
+  //     (error:any) => {
+  //       reject()
+
+  //     }
+        
+  //   })
+  //   return promise;
+  // }
+
+  userRequest(UserName:any) {
+    interface ApiResponse {
+    name: string,
+    login: string;
+    followers: number,
+    following: number,
+    
     }
+
+    
     let promise = new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>(environment.apiUrl+this.Username+"?access_token="+environment.apiKey).toPromise().then(response=>{
-        this.user.name = response.name
-        this.user.login = response.login
-        this.user.followers = response.followers
-        this.user.following = response.following
-        
-        // console.log(response)
+    this.http.get<ApiResponse>(environment.apiUrl + UserName + "?access_token=" + environment.apiKey).toPromise().then(response=>{
+    this.user.name = response.name;
+    this.user.login = response.login; 
+    this.user.followers = response.followers;
+    this.user.following = response.following;   
+    
+    // this.user.public_repos = response.public_repos
 
-        resolve(response)
-      }), 
-      (error:any) => {
-        reject()
-
-      }
-        
     })
-    return promise;
-  }
+    })
+    return promise
+    } 
+
+
   getUserRepos(UserName:string){
     interface ApiResponse{
       name:string,

@@ -18,6 +18,8 @@ export class GitFormComponent implements OnInit {
   searchUser() {
     this.emitSearch.emit(this.Username);
     this.Username;
+
+    
   }
 
   ngOnInit(): void {

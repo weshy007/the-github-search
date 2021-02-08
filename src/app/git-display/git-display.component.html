@@ -1,26 +1,28 @@
-<!-- <div class="container-fluid">
-    <h3>To Search, <br> Please Input Either...</h3>
+<div class="container">
+    <div class="row" style="margin-top: 30px;">
+     
+        <h2 >Search your Repositories here using gitHub Username</h2>
+        <div class="col-md-6 pt-2" >
+            <form class="form-inline md-form mr-auto mb-4"#name="ngForm">
+                <input class="form-control  mr-sm-2" type="text" placeholder="Enter GitHub name" aria-label="Search"  [(ngModel)] ="UserName" name="UserName">
+                <button mdbBtn size="sm"  rounded="true" class="my-0 waves-light btn btn-success" mdbWavesEffect
+                    type="submit" (click)=" searchUser()">Search user</button>
+            </form>
+        </div>
 
-    <form>
-    <div class="form-group">
-      <label for="repository">GitHub Repo or Profile Name</label>
-      <input type="text" class="form-control" placeholder="GitHub Name" >
     </div>
 
-    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-
-  </form> -->
+</div> 
 <!--   
   <app-git-form (emitSearch)="searchUser($event)"></app-git-form> -->
   
   <!-- <p *ngIf='user'>
-      {{user.following}}
     </p> -->
     <p *ngIf='user'>
-        {{user.name}} <br>
-        {{user.login}} <br>
-        {{user.followers}} <br>
-        {{user.following}} <br>
+        Name:  {{user.name}} <br>
+        Username: {{user.login}} <br>
+        Followers: {{user.followers}} <br>
+        Following: {{user.following}} <br>
         
         
     </p>
@@ -28,4 +30,3 @@
     
     <p>End</p>
     
-<!-- </div> -->
