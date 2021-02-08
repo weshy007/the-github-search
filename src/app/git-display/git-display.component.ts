@@ -23,6 +23,8 @@ export class GitDisplayComponent implements OnInit {
        this.user = this.gitService.user;
      },
     )}
+
+    
   ngOnInit(): void {
     this.gitService.userRequest()
     this.user = this.gitService.user
