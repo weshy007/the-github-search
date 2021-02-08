@@ -1,57 +1,47 @@
-
-
-
-
 <div class="header2020">
     <div class="welcome">
         <h2><br>WELCOME <br> TO THE PLATFORM WHERE</h2>
         <h5>WHERE YOU CAN SEARCH FOR GITHUB USERS</h5>
         <p>AMAZING PEOPLE LEAVE A MARK IN PEOPLES LIVES</p> 
-       
     </div>
 </div>
 
 <div class="col-md-6">
     <img style="border-radius: 50px;" src="{{user.avatar_url}}" alt="">
-
 </div>
 
 <div class="container-fluid">
     <h3>My Profile Details</h3>
     <p *ngIf='user'>
-        
         Name:  {{user.name}} <br>
         Username: {{user.login}} <br>
         Followers: {{user.followers}} <br>
         Following: {{user.following}} <br>
-       
-        
     </p>
+
     <h3>My Repositories</h3>
 
-<div class="container" style="text-align: center;">
+    <div class="container" style="text-align: center;">
+        <div class="row">
+            <div class="col-md-6" *ngFor="let repo of repository">
+                <div class="card mt-3">
+                    <p class="text-center pt-4 para" appUppercase>
+                        {{repo.name|uppercase}} <br>
+                        Created {{ repo.created_at|dateCount}}
+                    </p>
+                    <hr>
+                    <p>
+                        {{repo.description}}
+                    </p>
 
-    <div class="row" >
-        <div class="col-md-6" *ngFor="let repo of repository">
-            <div class="card mt-3">
-
-                <p class="text-center pt-4 para" appUppercase>
-                    {{repo.name|uppercase}} <br>
-                    Created {{ repo.created_at|dateCount}}
-                </p>
-
-                <hr>
-                <p>
-                    {{repo.description}}
-                </p>
-
-                <p>
-                    {{repo.language}}
-                </p>
+                    <p>
+                        {{repo.language}}
+                    </p>
              
-                <div class="card-footer text-center">
-                    <a href="{{ repo.html_url }}" class="btn btn-secondary btn-sm" target="_blank">View on GitHub</a>
+                    <div class="card-footer text-center">
+                        <a href="{{ repo.html_url }}" class="btn btn-secondary btn-sm" target="_blank">View on GitHub</a>
+                    </div>
                 </div>
-
             </div>
-        </div>
+        </div> 
+    </div>

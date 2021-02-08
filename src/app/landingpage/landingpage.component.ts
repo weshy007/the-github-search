@@ -26,20 +26,11 @@ export class LandingpageComponent implements OnInit {
       })
   }
 
-  
-  
-
-  
-
     
   ngOnInit(): void {
     this.gitService.getUser()
    
     this.user = this.gitService.user
-   
-
-}
-
-    
+}    
 }
 

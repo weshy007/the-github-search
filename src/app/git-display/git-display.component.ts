@@ -27,12 +27,7 @@ export class GitDisplayComponent implements OnInit {
     
     this.gitService.getUserRepos(this.UserName);
       this.repository = this.gitService.repos
-
-
   }
-
-  
-
 
   userRequest(Username:any){
     this.gitService.userRequest(Username).then(
