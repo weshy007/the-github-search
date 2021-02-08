@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { GitFormComponent } from './git-form/git-form.component';
 import { GitDisplayComponent } from './git-display/git-display.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GitFormComponent,
     GitDisplayComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    NavbarComponent
   ],
 
   imports: [

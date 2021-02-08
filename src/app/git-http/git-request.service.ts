@@ -9,53 +9,59 @@ import { promise } from 'protractor';
   providedIn: 'root'
 })
 export class GitRequestService {
+  gitRequest() {
+    throw new Error('Method not implemented.');
+  }
   
   user: User;
   repos: Repository;
   Username?: string;
   
-  repo:any;
+  // repo:any;
   
   constructor(private http:HttpClient) {
-    this.user = new User("","",0 , 0,)
-    this.repos = new Repository("", "", "", new Date())
+    this.user = new User("","",0 , 0, "", "")
+    this.repos = new Repository("", "", "", new Date(), "")
     
     this.Username = "weshy007" 
     
     // console.log(this.user)
   }
   
-  // searchUser(userRequest: any) {
-  //   throw new Error('Method not implemented.');
-  // }
+  searchUser(userRequest: any) {
+    throw new Error('Method not implemented.');
+  }
 
-  //  userRequest(){
-  //   interface ApiResponse{
-  //     name:string,
-  //     login: string,
-  //     followers: number,
-  //     following: number,
-  //     repos_url: string,
-  //   }
-  //   let promise = new Promise((resolve,reject)=>{
-  //     this.http.get<ApiResponse>(environment.apiUrl+this.Username+"?access_token="+environment.apiKey).toPromise().then(response=>{
-  //       this.user.name = response.name
-  //       this.user.login = response.login
-  //       this.user.followers = response.followers
-  //       this.user.following = response.following
+   getUser(){
+    interface ApiResponse{
+      name:string,
+      login: string,
+      followers: number,
+      following: number,
+      repos_url: string,
+      avatar_url: string,
+      url: string
+    }
+
+    let promise = new Promise((resolve,reject)=>{
+      this.http.get<ApiResponse>(environment.apiUrl+this.Username+"?access_token="+environment.apiKey).toPromise().then(response=>{
+        this.user.name = response.name
+        this.user.login = response.login
+        this.user.followers = response.followers
+        this.user.following = response.following
         
-  //       // console.log(response)
+        // console.log(response)
 
-  //       resolve(response)
-  //     }), 
-  //     (error:any) => {
-  //       reject()
+        resolve(response)
+      }), 
+      (error:any) => {
+        reject()
 
-  //     }
+      }
         
-  //   })
-  //   return promise;
-  // }
+    })
+    return promise;
+  }
 
   userRequest(UserName:any) {
     interface ApiResponse {
@@ -63,6 +69,8 @@ export class GitRequestService {
     login: string;
     followers: number,
     following: number,
+    avatar_url:string,
+    url: string
     
     }
 
@@ -82,20 +90,21 @@ export class GitRequestService {
     } 
 
 
-  getUserRepos(UserName:string){
+  getUserRepos(){
     interface ApiResponse{
       name:string,
       description:string,
       language:string,
-      created_at:Date
+      created_at:Date,
+      repos_url: string
     }
 
       let promise = new Promise((resolve, reject) => {
-        let apiURL = 'https://api.github.com/users/' + UserName + '/repos?access_token=' + environment.apiKey;
+        let apiURL = 'https://api.github.com/users/' + this.Username + '/repos?access_token=' + environment.apiKey;
         this.http.get<ApiResponse>(apiURL)
           .toPromise().then(res => { 
               this.repos = res;
-              // resolve();
+              resolve(res);
             },
             (error)=>{
               reject();
@@ -103,31 +112,44 @@ export class GitRequestService {
           );
       });
       return promise;
+    }
 }
-getRepository(repo:any){
-  interface ApiResponse{
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// getRepository(repo:any){
+//   interface ApiResponse{
+//   }
   
-  let promise = new Promise((resolve, reject) => {
-    let apiURL = 'https://api.github.com/search/repositories?q=' + repo + '&order=asc?access_token=' + environment.apiKey;
-    this.http.get<ApiResponse>(apiURL)
-      .toPromise()
-      .then(
-        res => { 
-          this.repo = res;
-          // resolve();
-        },
-        (error)=>{
-          reject();
-        }
-      );
-  });
-  return promise;
+//   let promise = new Promise((resolve, reject) => {
+//     let apiURL = 'https://api.github.com/search/repositories?q=' + repo + '&order=asc?access_token=' + environment.apiKey;
+//     this.http.get<ApiResponse>(apiURL)
+//       .toPromise()
+//       .then(
+//         res => { 
+//           this.repos = res;
+//           // resolve();
+//         },
+//         (error)=>{
+//           reject();
+//         }
+//       );
+//   });
+//   return promise;
 
 
-}
 
-}
+
 
 
 
