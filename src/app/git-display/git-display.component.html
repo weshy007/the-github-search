@@ -1,1 +1,23 @@
-<p>git-display works!</p>
+<div class="container-fluid">
+    <h3>To Search, <br> Please Input Either...</h3>
+
+    <form>
+    <div class="form-group">
+      <label for="repository">GitHub Repo or Profile Name</label>
+      <input type="text" class="form-control" placeholder="GitHub Repository Name" >
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+
+  </form>
+  
+  <p>git-display works!</p>
+  
+  <p *ngIf='user'>
+      {{user.name}}
+    </p>
+    
+    
+    <p>End</p>
+    
+</div>
