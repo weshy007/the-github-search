@@ -62,6 +62,31 @@ export class GitRequestService {
     })
     return promise;
   }
+  getRepo(){
+    interface ApiResponse{
+      name:string,
+      description:string,
+      language:string,
+      created_at:Date,
+      repos_url: string
+    }
+
+    let promise = new Promise((resolve,reject)=>{
+      this.http.get<ApiResponse>(environment.apiUrl + this.Username +"/repos?access_token="+environment.apiKey).toPromise().then(response=>{
+        this.repos = response;
+        
+        // console.log(response)
+
+        resolve(response)
+      }), 
+      (error:any) => {
+        reject()
+
+      }
+        
+    })
+    return promise;
+  }
 
   userRequest(UserName:any) {
     interface ApiResponse {
@@ -90,7 +115,7 @@ export class GitRequestService {
     } 
 
 
-  getUserRepos(){
+  getUserRepos(UserName:any){
     interface ApiResponse{
       name:string,
       description:string,
@@ -100,10 +125,8 @@ export class GitRequestService {
     }
 
       let promise = new Promise((resolve, reject) => {
-        let apiURL = 'https://api.github.com/users/' + this.Username + '/repos?access_token=' + environment.apiKey;
-        this.http.get<ApiResponse>(apiURL)
-          .toPromise().then(res => { 
-              this.repos = res;
+        this.http.get<ApiResponse>(environment.apiUrl + UserName + "/repos?access_token=" + environment.apiKey).toPromise().then(res => { 
+            this.repos = res;
               resolve(res);
             },
             (error)=>{
