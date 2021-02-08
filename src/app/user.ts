@@ -5,7 +5,6 @@ export class User {
         public login: string,
         public followers: number,
         public following: number,
-        public repos_url: string,
-
+        
     ) {}
 }

@@ -1,9 +1,12 @@
 export class Repository {
 
     constructor(
-        public public_repos: number,
-        public public_gists: number,
-        
+        public name:string,
+        public description:string,
+        public language:string,
+        public created_at:Date
+      
+
 
     ) { }
 
