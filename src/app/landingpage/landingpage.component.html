@@ -45,9 +45,9 @@
         <div class="col-md-6" *ngFor="let repo of repository">
             <div class="card mt-3">
 
-                <p class="text-center pt-4 para">
+                <p class="text-center pt-4 para" appUppercase>
                     {{repo.name|uppercase}} <br>
-                    Created on {{ repo.created_at|dateCount}}
+                    Created {{ repo.created_at|dateCount}}
                 </p>
 
                 <hr>

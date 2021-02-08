@@ -10,6 +10,7 @@ import { GitDisplayComponent } from './git-display/git-display.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DateCountPipe } from './date-count.pipe';
+import { UppercaseDirective } from './uppercase.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DateCountPipe } from './date-count.pipe';
     GitDisplayComponent,
     LandingpageComponent,
     NavbarComponent,
-    DateCountPipe
+    DateCountPipe,
+    UppercaseDirective
   ],
 
   imports: [
