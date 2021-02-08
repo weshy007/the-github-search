@@ -12,40 +12,20 @@
 
     </div>
 
-</div> 
-<!--   
-  <app-git-form (emitSearch)="searchUser($event)"></app-git-form> -->
-  
-  <!-- <p *ngIf='user'>
-    </p> -->
-    <!-- <p *ngIf='user'>
-        Name:  {{user.name}} <br>
-        Username: {{user.login}} <br>
-        Followers: {{user.followers}} <br>
-        Following: {{user.following}} <br>
+        <p *ngIf='user'>
+            Name:  {{user.name}} <br>
+            Username: {{user.login}} <br>
+            Followers: {{user.followers}} <br>
+            Following: {{user.following}} <br>
+        </p>
         
-    </p> -->
-
-
-    <!-- <div *ngFor='let repo of repository' class="card" style="width: 18rem;"> -->
-        <!-- <div class="card-body">
-          <h5 class="card-title">{{repository.name}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{repo.language}}</h6>
-          <p class="card-text"> {{repo.description}}</p>
-          
-        </div> -->
-      
-
-
-    <!-- <p *ngFor='let repo of repository,'>
-        {{repository.name}}
-        {{}}
-        public name:string,
-        public description:string,
-        public language:string,
-
-    </p>
-     -->
-    
-    <p>End</p>
-    
+        <div *ngFor="let repo of repository">
+            {{repository.name}} <br>
+            {{repository.description}} <br>
+            {{repository.language}} <br>
+            
+        </div>
+        
+            <p>End</p>
+            
+        </div> 

@@ -19,6 +19,8 @@
 <div class="container-fluid">
     <h3>My Profile Details</h3>
     <p *ngIf='user'>
+        <!-- <img src="{{user.avatar_url}}" alt=""> -->
+        
         Name:  {{user.name}} <br>
         Username: {{user.login}} <br>
         Followers: {{user.followers}} <br>
@@ -44,7 +46,8 @@
             <div class="card mt-3">
 
                 <p class="text-center pt-4 para">
-                    {{repo.name}}
+                    {{repo.name}} <br>
+                    Created on {{ repo.created_at|date}}
                 </p>
 
                 <hr>

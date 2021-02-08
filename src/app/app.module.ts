@@ -9,6 +9,7 @@ import { GitFormComponent } from './git-form/git-form.component';
 import { GitDisplayComponent } from './git-display/git-display.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DateCountPipe } from './date-count.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     GitFormComponent,
     GitDisplayComponent,
     LandingpageComponent,
-    NavbarComponent
+    NavbarComponent,
+    DateCountPipe
   ],
 
   imports: [

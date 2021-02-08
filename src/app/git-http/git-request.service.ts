@@ -69,7 +69,7 @@ export class GitRequestService {
     login: string;
     followers: number,
     following: number,
-    avatar_url:string,
+    avatar_url: string,
     url: string
     
     }
