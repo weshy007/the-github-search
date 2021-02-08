@@ -27,16 +27,38 @@
         
     </p>
     <h3>My Repositories</h3>
-    <div *ngFor="let repo of repository" class="card" style="width: 18rem;">
+    <!-- <div *ngFor="let repo of repository" class="card col-md" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">{{repo.name}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{repo.language}}</h6>
           <p class="card-text"> {{repo.description}} </p>
           <a href="{{ repo.html_url }}" class="btn btn-secondary btn-sm" target="_blank">View on GitHub</a>
         </div>
-    
-        <!-- <div class="card-footer text-center">
-            <a href="{{ repos.html_url }}" class="btn btn-success" target="_blank">View on GitHub</a>
-        </div> -->
       </div>
-</div>
+</div> -->
+
+<div class="container" style="text-align: center;">
+
+    <div class="row" >
+        <div class="col-md-6" *ngFor="let repo of repository">
+            <div class="card mt-3">
+
+                <p class="text-center pt-4 para">
+                    {{repo.name}}
+                </p>
+
+                <hr>
+                <p>
+                    {{repo.description}}
+                </p>
+
+                <p>
+                    {{repo.language}}
+                </p>
+             
+                <div class="card-footer text-center">
+                    <a href="{{ repo.html_url }}" class="btn btn-secondary btn-sm" target="_blank">View on GitHub</a>
+                </div>
+
+            </div>
+        </div>
