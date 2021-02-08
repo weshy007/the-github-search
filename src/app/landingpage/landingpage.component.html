@@ -46,8 +46,8 @@
             <div class="card mt-3">
 
                 <p class="text-center pt-4 para">
-                    {{repo.name}} <br>
-                    Created on {{ repo.created_at|date}}
+                    {{repo.name|uppercase}} <br>
+                    Created on {{ repo.created_at|dateCount}}
                 </p>
 
                 <hr>
