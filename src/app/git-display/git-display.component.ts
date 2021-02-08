@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GitRequestService } from '../git-http/git-request.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-git-display',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GitDisplayComponent implements OnInit {
 
-  constructor() { }
+  user?: User;
+
+  constructor(private gitService:GitRequestService) { 
+    
+    
+    
+  }
 
   ngOnInit(): void {
+    this.gitService.userRequest()
+    this.user = this.gitService.user
   }
 
 }
