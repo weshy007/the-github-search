@@ -10,6 +10,7 @@
             </form>
         </div>
     </div>
+
     <p *ngIf='user'>
         Name:  {{user.name}} <br>
         Username: {{user.login}} <br>
@@ -22,11 +23,10 @@
             <div class="col-md-6" *ngFor="let repo of repository">
                 <div class="card mt-3">
                     <p class="text-center pt-4 para" appUppercase>
-                        {repo.name|uppercase}} <br>
+                        {{repo.name|uppercase}} <br>
                         Created {{ repo.created_at|dateCount}}
                     </p>
         
-                    <hr>
                     <p>
                         {{repo.description}}
                     </p>
@@ -42,4 +42,4 @@
             </div>
         </div> 
     </div>
-</div>
+</div> 

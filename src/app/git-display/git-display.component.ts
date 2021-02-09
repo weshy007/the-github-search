@@ -41,15 +41,10 @@ export class GitDisplayComponent implements OnInit {
       ( success:any) => {
         this.repository = this.gitService.repos
       }
+    )} 
 
-    )
-  }
-
-    
   ngOnInit(): void {
    
-}
-
-    
+}  
 }
 
