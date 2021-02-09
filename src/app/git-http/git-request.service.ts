@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { User } from '../user';
 import { Repository} from '../repository'
@@ -9,6 +9,8 @@ import { promise } from 'protractor';
   providedIn: 'root'
 })
 export class GitRequestService {
+  
+  
   gitRequest() {
     throw new Error('Method not implemented.');
   }
@@ -39,6 +41,8 @@ export class GitRequestService {
       url: string
     }
 
+    let headers = new HttpHeaders({'Authorization': 'token'})
+    let options = { headers:headers}
     let promise = new Promise((resolve,reject)=>{
       this.http.get<ApiResponse>(environment.apiUrl+this.Username+"?access_token="+environment.apiKey).toPromise().then(response=>{
         this.user.name = response.name
@@ -64,6 +68,8 @@ export class GitRequestService {
       repos_url: string
     }
 
+    let headers = new HttpHeaders({'Authorization': 'token 34b19093f0ce20f74eb69321290f141fcdcbc743 '})
+    let options = { headers:headers }
     let promise = new Promise((resolve,reject)=>{
       this.http.get<ApiResponse>(environment.apiUrl + this.Username +"/repos?access_token="+environment.apiKey).toPromise().then(response=>{
         this.repos = response;
@@ -86,6 +92,8 @@ export class GitRequestService {
     url: string
     }
 
+    let headers = new HttpHeaders({'Authorization': 'token'})
+    let options = { headers:headers}
     let promise = new Promise((resolve,reject)=>{
     this.http.get<ApiResponse>(environment.apiUrl + UserName + "?access_token=" + environment.apiKey).toPromise().then(response=>{
     this.user.name = response.name;
@@ -106,6 +114,8 @@ export class GitRequestService {
       repos_url: string
     }
 
+    let headers = new HttpHeaders({'Authorization': 'token 34b19093f0ce20f74eb69321290f141fcdcbc743 '})
+    let options = { headers:headers }
     let promise = new Promise((resolve, reject) => {
       this.http.get<ApiResponse>(environment.apiUrl + UserName + "/repos?access_token=" + environment.apiKey).toPromise().then(res => { 
         this.repos = res;
