@@ -6,8 +6,11 @@
             <form class="form-inline md-form mr-auto mb-4"#name="ngForm">
                 <input class="form-control  mr-sm-2" type="text" placeholder="Enter GitHub name" aria-label="Search"  [(ngModel)] ="UserName" name="UserName"> <br>
                 <button mdbBtn size="sm"  rounded="true" class="my-0 waves-light btn btn-success btn-sm" mdbWavesEffect
-                    type="submit" (click)=" searchUser()">Search user</button> <br> NB: Please click twice
-            </form>
+                    type="submit" (click)=" searchUser()">Search user</button> 
+                </form>
+                <p>
+                    <br> NB: Please click twice
+                </p>
         </div>
     </div>
 
@@ -16,10 +19,12 @@
         Username: {{user.login}} <br>
         Followers: {{user.followers}} <br>
         Following: {{user.following}} <br>
+        No. Of Repos: {{user.public_repos}}
     </p>
     
     <div class="container" style="text-align: center;">
         <div class="row" >
+            
             <div class="col-md-6" *ngFor="let repo of repository">
                 <div class="card mt-3">
                     <p class="text-center pt-4 para" appUppercase>

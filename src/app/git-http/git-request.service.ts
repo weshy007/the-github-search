@@ -39,16 +39,18 @@ export class GitRequestService {
       repos_url: string,
       avatar_url: string,
       url: string
+      public_repos: number
     }
 
     let headers = new HttpHeaders({'Authorization': 'token'})
     let options = { headers:headers}
     let promise = new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>(environment.apiUrl+this.Username+"?access_token="+environment.apiKey).toPromise().then(response=>{
+      this.http.get<ApiResponse>(environment.apiUrl+this.Username ).toPromise().then(response=>{
         this.user.name = response.name
         this.user.login = response.login
         this.user.followers = response.followers
         this.user.following = response.following
+        this.user.public_repos = response.public_repos
         
         resolve(response)
       }), 
@@ -68,10 +70,10 @@ export class GitRequestService {
       repos_url: string
     }
 
-    let headers = new HttpHeaders({'Authorization': 'token 34b19093f0ce20f74eb69321290f141fcdcbc743 '})
+    let headers = new HttpHeaders({'Authorization': 'token'})
     let options = { headers:headers }
     let promise = new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>(environment.apiUrl + this.Username +"/repos?access_token="+environment.apiKey).toPromise().then(response=>{
+      this.http.get<ApiResponse>(environment.apiUrl + this.Username + '/repos' ).toPromise().then(response=>{
         this.repos = response;
         resolve(response)
       }), 
@@ -89,17 +91,19 @@ export class GitRequestService {
     followers: number,
     following: number,
     avatar_url: string,
-    url: string
+    url: string,
+    public_repos: number
     }
 
     let headers = new HttpHeaders({'Authorization': 'token'})
     let options = { headers:headers}
     let promise = new Promise((resolve,reject)=>{
-    this.http.get<ApiResponse>(environment.apiUrl + UserName + "?access_token=" + environment.apiKey).toPromise().then(response=>{
+    this.http.get<ApiResponse>(environment.apiUrl + UserName).toPromise().then(response=>{
     this.user.name = response.name;
     this.user.login = response.login; 
     this.user.followers = response.followers;
     this.user.following = response.following;
+    this.user.public_repos = response.public_repos
       })
     })
     return promise
@@ -114,12 +118,13 @@ export class GitRequestService {
       repos_url: string
     }
 
-    let headers = new HttpHeaders({'Authorization': 'token 34b19093f0ce20f74eb69321290f141fcdcbc743 '})
+    let headers = new HttpHeaders({'Authorization': 'token'})
     let options = { headers:headers }
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiResponse>(environment.apiUrl + UserName + "/repos?access_token=" + environment.apiKey).toPromise().then(res => { 
+      this.http.get<ApiResponse>(environment.apiUrl +UserName + '/repos').toPromise().then(res => { 
         this.repos = res;
           resolve(res);
+          console.log(this.repos)
             },
             (error)=>{
               reject();
