@@ -42,8 +42,6 @@ export class GitRequestService {
       public_repos: number
     }
 
-    let headers = new HttpHeaders({'Authorization': 'token'})
-    let options = { headers:headers}
     let promise = new Promise((resolve,reject)=>{
       this.http.get<ApiResponse>(environment.apiUrl+this.Username ).toPromise().then(response=>{
         this.user.name = response.name
@@ -70,8 +68,6 @@ export class GitRequestService {
       repos_url: string
     }
 
-    let headers = new HttpHeaders({'Authorization': 'token'})
-    let options = { headers:headers }
     let promise = new Promise((resolve,reject)=>{
       this.http.get<ApiResponse>(environment.apiUrl + this.Username + '/repos' ).toPromise().then(response=>{
         this.repos = response;
@@ -95,8 +91,6 @@ export class GitRequestService {
     public_repos: number
     }
 
-    let headers = new HttpHeaders({'Authorization': 'token'})
-    let options = { headers:headers}
     let promise = new Promise((resolve,reject)=>{
     this.http.get<ApiResponse>(environment.apiUrl + UserName).toPromise().then(response=>{
     this.user.name = response.name;
@@ -118,8 +112,6 @@ export class GitRequestService {
       repos_url: string
     }
 
-    let headers = new HttpHeaders({'Authorization': 'token'})
-    let options = { headers:headers }
     let promise = new Promise((resolve, reject) => {
       this.http.get<ApiResponse>(environment.apiUrl +UserName + '/repos').toPromise().then(res => { 
         this.repos = res;
