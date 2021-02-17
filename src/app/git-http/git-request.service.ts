@@ -97,7 +97,8 @@ export class GitRequestService {
     this.user.login = response.login; 
     this.user.followers = response.followers;
     this.user.following = response.following;
-    this.user.public_repos = response.public_repos
+    this.user.public_repos = response.public_repos;
+    this.user.avatar_url = response.avatar_url;
       })
     })
     return promise
